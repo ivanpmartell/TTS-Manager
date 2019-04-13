@@ -1,7 +1,8 @@
 import urllib.request
 import urllib.error
 import imghdr
-import tts
+from .logger import logger
+from .filesystem import strip_filename
 
 # fix jpeg detection
 def test_jpg(h,f):
@@ -14,7 +15,7 @@ imghdr.tests.append(test_jpg)
 class Url:
   def __init__(self,url,filesystem):
     self.url = url
-    self.stripped_url=tts.strip_filename(url)
+    self.stripped_url=strip_filename(url)
     self.filesystem = filesystem
     self._isImage=None
     self._looked_for_location=False
@@ -26,7 +27,7 @@ class Url:
       self._looked_for_location=True
 
   def download(self):
-    log=tts.logger()
+    log=logger()
     if self.exists:
       return True
     url=self.url
