@@ -5,6 +5,7 @@ from logger import logger
 from filesystem import FileSystem, get_default_fs
 from tts import describe_files_by_type, download_file, load_json_file
 from save import Save
+import save as save_helper
 
 import argparse
 import os.path
@@ -296,8 +297,7 @@ class TTS_CLI:
         return 0, "Exported %s to %s" % (args.id, filename)
 
     def do_import(self, args):
-        return 0
-        # return save.importPak(self.filesystem, args.file)
+        return 0, save_helper.importPak(self.filesystem, args.file)
 
 
 def main():
