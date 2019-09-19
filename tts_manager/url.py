@@ -1,8 +1,8 @@
-import urllib.request
+from urllib.request import urlopen
 import urllib.error
 import imghdr
-from .logger import logger
-from .filesystem import strip_filename
+from logger import logger
+from filesystem import strip_filename
 
 # fix jpeg detection
 def test_jpg(h,f):
@@ -36,15 +36,15 @@ class Url:
       log.warn("Missing protocol for {}. Assuming http://.".format(url))
       url = "http://" + url
     log.info("Downloading data for %s." % url)
-    user_agent = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'
-    headers = { 'User-Agent' : user_agent }
-    request=urllib.request.Request(url,headers=headers)
+    url, _, _ = url.partition('{')
+    print(url)
+    with urlopen(url) as response:
+      data = response.read()
     try:
-      response=urllib.request.urlopen(request)
-    except urllib.error.URLError as e:
+      data
+    except e:
       log.error("Error downloading %s (%s)" % (url,e))
       return False
-    data=response.read()
     imagetype=imghdr.what('',data)
     filename=None
     if imagetype==None:

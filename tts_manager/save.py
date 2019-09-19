@@ -2,10 +2,10 @@ import os
 import zipfile
 import json
 import urllib.error
-from .logger import logger
-from .url import Url
-from .save_type import SaveType
-from .filesystem import FileSystem, get_default_fs
+from logger import logger
+from url import Url
+from save_type import SaveType
+from filesystem import FileSystem, get_default_fs
 
 
 def validate_metadata(metadata):

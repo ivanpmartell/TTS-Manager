@@ -1,8 +1,8 @@
 import os.path
 import string
 import json
-from .logger import logger
-from .save import Save
+from logger import logger
+from save import Save
 import codecs
 
 

@@ -1,8 +1,8 @@
 import os
 import os.path
 import string 
-from .save_type import SaveType
-from .logger import logger
+from save_type import SaveType
+from logger import logger
 
 def get_default_fs():
   return FileSystem(standard_basepath())

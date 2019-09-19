@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-from .preferences import Preferences
-from .save_type import SaveType
-from .logger import logger
-from .filesystem import FileSystem, get_default_fs
-from .tts import describe_files_by_type, download_file, load_json_file
-from .save import Save
+from preferences import Preferences
+from save_type import SaveType
+from logger import logger
+from filesystem import FileSystem, get_default_fs
+from tts import describe_files_by_type, download_file, load_json_file
+from save import Save
 
 import argparse
 import os.path

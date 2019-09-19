@@ -4,8 +4,8 @@ import tkinter.simpledialog as simpledialog
 import tkinter.filedialog as filedialog
 import tkinter.messagebox as messagebox
 import winreg
-from .filesystem import FileSystem,get_default_fs
-from .logger import logger
+from filesystem import FileSystem,get_default_fs
+from logger import logger
 
 class Preferences():
     def __init__(self):
